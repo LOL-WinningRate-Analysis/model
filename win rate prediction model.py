@@ -7,6 +7,7 @@ import json
 with open('.\data\datas.json') as json_file:
     json_data = json.load(json_file)
     json_array = []
+    print(len(json_data))
 
     for i in range(len(json_data)):
         json_array.append(json_data[i]["array"])
@@ -25,13 +26,13 @@ y_train = np.array(y_train)
 #model
 model = Sequential()
 
-model.add(Dense(32, input_dim = 10))
+model.add(Dense(10, input_dim = 10))
 model.add(Activation('relu'))
 
-model.add(Dense(64))
+model.add(Dense(8))
 model.add(Activation('relu'))
 
-model.add(Dense(32))
+model.add(Dense(6))
 model.add(Activation('relu'))
 
 model.add(Dense(2))
@@ -63,7 +64,7 @@ for i in range(iters_num):
 
     
 
-model.fit(x_train, y_train, epochs = 20, batch_size = 1000)
+model.fit(x_train, y_train, epochs = 100, batch_size = 1000)
 
 
 model.save('model.h5')
