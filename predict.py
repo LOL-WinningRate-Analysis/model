@@ -9,9 +9,13 @@ print("loaded model and weights")
 loaded_model.compile(loss = 'binary_crossentropy', optimizer = 'rmsprop', metrics = ['accuracy'])
 
 #data preprocessing
-data = [ 58, 523, 245, 141, 43, 25, 131, 106, 78, 51]
-#y = 0
+data = [ 43, 64, 81, 127, 876, 3, 222, 33, 26, 164]
+# 32, 81, 57, 432, 61, 516, 60, 245, 67, 350, 0
+# 111, 8, 64, 81, 245, 202, 350, 154, 131, 113, 1
+# 39, 145, 254, 98, 517, 78, 61, 80, 51, 64, 0
+# 43, 64, 81, 127, 876, 3, 222, 33, 26, 164, 1
 data = np.array(data)
+data = data/1000
 data = np.reshape(data, (-1, 10))
 
 print(data.shape)
